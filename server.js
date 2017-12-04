@@ -28,18 +28,9 @@ http.createServer(function (req, res) {
 }).listen(4000); //the server object listens on port 8080
 
 function get_change(res){
-	MongoClient.connect(urlDB, function(err, db) {
-		if (err) throw err;
-
-		db.collection('stocks').find({}).toArray(function(err,arr){
-			if (err) throw err;
-			displaystuff(arr,res);
-		});
-
-		db.close();
-	});
+	res.write("we good");
+	return res.end();
 }
-
 function displaystuff(results,res){
 	var now = new Date();
 	var total = 0;
