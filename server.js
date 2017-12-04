@@ -25,7 +25,12 @@ http.createServer(function (req, res) {
 
 		get_change(res);
 	});
-}).listen(4000); //the server object listens on port 8080
+}); //the server object listens on port 8080
+
+var port = process.env.PORT || 8000; 
+server.listen(port, function() {
+    console.log("App is running on port " + port);
+});
 
 function get_change(res){
 	res.write("we good");
