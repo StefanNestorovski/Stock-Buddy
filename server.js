@@ -25,19 +25,7 @@ http.createServer(function (req, res) {
 
 		get_change(res);
 	});
-
-	if(req.url != "/favicon.ico"){
-		logUserTime(req);
-	}
-}).listen(8080); //the server object listens on port 8080
-
-function logUserTime(req){
-	var ipAddress = req.connection.remoteAddress != '::1' ? req.connection.remoteAddress : 'Possibly local host';
-
-	fs.appendFile('log.txt', 'User logged at ' + getTimeNow() + ' on IP: ' + ipAddress + '\n', function (err) {
-		if (err) throw err;
-	});
-}
+}).listen(4000); //the server object listens on port 8080
 
 function get_change(res){
 	MongoClient.connect(urlDB, function(err, db) {
